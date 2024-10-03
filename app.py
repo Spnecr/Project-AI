@@ -138,22 +138,12 @@ def second_page():
             background-color: #3E3232;  /* Light gray background */
         }
                 
-        .description {
-            color: white;
-            font-size: 1.2em;
-        }
-                
         .big-title {
             font-size: 4em;  
             font-weight: bold;
             text-align: center;
             color: white;
             margin-top: -70px;  
-        }
-        .video-section {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
         }
         .button-section {
             display: flex;
@@ -224,7 +214,7 @@ def second_page():
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=10, stratify=y)
 
     # Model training
-    rf = RandomForestClassifier()
+    rf = RandomForestClassifier(n_estimators=100, max_depth=10)
     rf.fit(x_train, y_train)
 
     # Evaluate model
